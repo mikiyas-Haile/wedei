@@ -50,6 +50,7 @@ export default function App() {
   const [loading, setloading]= useState(false)
   let [fontsLoaded] = useFonts({
     'Bold': require("./assets/fonts/Quicksand-Bold.ttf"),
+    'ExtraLight': require("./assets/fonts/Quicksand-Light.ttf"),
     'Light': require("./assets/fonts/Quicksand-Light.ttf"),
     'Medium': require("./assets/fonts/Quicksand-Medium.ttf"),
     'Regular': require("./assets/fonts/Quicksand-Regular.ttf"),

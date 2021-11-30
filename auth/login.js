@@ -68,7 +68,7 @@ export function LoginComponent (props) {
                   mycallback, {
                   // token:token,
                   csrf:csrfToken,
-                  endpoint:'/api/auth/login',
+                  endpoint:'/api/login',
                   method:'POST',
                   data:{
                       username:username,

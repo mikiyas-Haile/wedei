@@ -7,6 +7,7 @@ const host = url()
 const {width, height} = Dimensions.get("screen")
 export function ProfileStatus(props){
     const [profile, setProfile] = useState([])
+    
     useEffect(() =>{
         const myCallback = (response, status) => {
             if (status === 200){
@@ -18,14 +19,14 @@ export function ProfileStatus(props){
             endpoint:'/api/profile/me',
             token:props.token
         })
-    },[])
+    })
     return (
         <>
         <FormattedProfile navigation={props.navigation} token={props.token} UserProfile={profile}/>
         </>
       );
 }
-function FormattedProfile(props){
+export function FormattedProfile(props){
     const {UserProfile, token} = props
     const Bio = UserProfile.bio ? UserProfile.bio : ''
 
@@ -68,13 +69,13 @@ function Follow(props){
         {isMe ?
             <>
             <View style={{width:width,flexDirection:'row', justifyContent:'space-evenly',margin:10}}>
-                <Text style={styles.boldStyle} onPress={() => (props.navigation.navigate('Followers', {UserProfile:UserProfile}))}>
+                <Text style={styles.boldStyle}>
                     {bookcount} books
                 </Text>
-                <Text style={styles.boldStyle} onPress={() => (props.navigation.navigate('Followers', {UserProfile:UserProfile}))}>
+                <Text style={styles.boldStyle}>
                     {followers} followers
                 </Text>
-                <Text style={styles.boldStyle} onPress={() => (props.navigation.navigate('Following', {UserProfile:UserProfile}))}>
+                <Text style={styles.boldStyle}>
                     {following} following
                 </Text>
             </View>

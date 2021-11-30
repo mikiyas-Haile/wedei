@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react';
 import {Dimensions,StyleSheet,TouchableOpacity,Pressable,Text, Image,View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack'
@@ -36,6 +37,7 @@ const addStyles = {
 }
 export function Home(props) {
   return (<>
+        {/* <StatusBar hidden/> */}
           <Tab.Navigator
           initialRouteName={homeName}
           screenOptions={({route}) =>({

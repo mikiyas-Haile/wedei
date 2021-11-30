@@ -44,7 +44,7 @@ export function BookList(props){
 
     return (
         <>
-        <StatusBar hidden/>
+        {/* <StatusBar translucent/> */}
         <FlatList
         scrollEventThrottle={16}
         horizontal
@@ -58,8 +58,8 @@ export function BookList(props){
         onRefresh={loadBooks}
         keyExtractor={(i, k) => k.toString()}
         />
-        <View onPress={() => (props.navigation.navigate("Write a Book"))} style={styles.addbutton}>
-            <Pressable onPress={() => (props.navigation.navigate("Write a Book"))} >
+        <View onPress={() => (props.navigation.navigate("Write a Book"))}>
+            <Pressable style={styles.addbutton} onPress={() => (props.navigation.navigate("Write a Book"))} >
                 <Ionicons onPress={() => (props.navigation.navigate("Write a Book"))} name='pencil' size={40} color='#9f00a1'/>
             </Pressable>
             </View>
@@ -73,15 +73,12 @@ const styles = StyleSheet.create({
         bottom:30,
         alignItems: 'center',
         justifyContent: 'center',
-        padding:15,
-        paddingBottom:15,
-        borderRadius: 100,
+        height:80,
+        width:80,
+        borderRadius: 40,
         backgroundColor: 'white',
-
         shadowColor: '#9f00a1',
-        shadowOpacity: 1,
-        shadowRadius: 10,
-        elevation: 5,
+        elevation: 20,
         
       },
     lightStyle:{
