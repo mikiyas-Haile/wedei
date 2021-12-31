@@ -46,17 +46,17 @@ export function BookList(props){
         <>
         {/* <StatusBar translucent/> */}
         <FlatList
-        scrollEventThrottle={16}
-        horizontal
-        snapToInterval={width}
-        decelerationRate={0}
-        bounces={false}
-        snapToAlignment={"start"}
+        viewabilityConfig={{ itemVisibleThreshold: 90 }}
+        pagingEnabled={true}
+        snapToInterval={height}
+        decelerationRate={'fast'}
+        snapToAlignment={"top"}
         data = {Books}
         renderItem = {renderRow}
         refreshing={loading}
         onRefresh={loadBooks}
-        keyExtractor={(i, k) => k.toString()}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         />
         <View onPress={() => (props.navigation.navigate("Write a Book"))}>
             <Pressable style={styles.addbutton} onPress={() => (props.navigation.navigate("Write a Book"))} >
@@ -123,11 +123,8 @@ const styles = StyleSheet.create({
         // backgroundColor:'#2c3e50',
     },
     book:{
-        height:height/1.2,
-        width:width,
+        height:height,
         backgroundColor:'#2c3e50',
-        alignItems:'center',
-        justifyContent:'center',
     },
     thumbnail:{
         width:width/2,
